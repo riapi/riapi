@@ -11,14 +11,6 @@ This specification defines a URI syntax that compliant HTTP servers and clients 
 * Upscaling & downscaling conrols
 * Default background color
 
-See Level 2 for
-
-* Format conversion
-* Jpeg quality selection
-* Background/matte color overrides
-* Rotation or flipping
-* Alignment control (padding and cropping)
-
 ## Level 1 specification 
 
 ### URI model

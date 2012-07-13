@@ -18,17 +18,18 @@ Ex. `image.jpg?width=100&height=100`
 * Social networks
 * Agile web development - eliminating the download-Photoshop-upload cycle can save hours per day.
 
+It was invented in the 1990s, but was mostly exclusive to large corporations until 2003-2007, when affordable (but often slower) implementations started appearing, and even the cheapest hosting plans became capable of performing the task.
+
+2011 saw explosive, exponential growth in the space, and the number of incompatible implementations has been doubling every 6 months. With the proliferation of mobile devices and high-dpi displays, it is becoming impractical to manually export all the required image variants.
+
 ### What else is it called?
 
 * Single-source imaging
 * Dynamic image resizing
 * Server-side resizing
 
-It was invented in the 1990s, but was mostly exclusive to large corporations until 2003-2007, when affordable (but often slower) implementations started appearing, and even the cheapest hosting plans became capable of performing the task.
 
 ### Why do we need to standardize this?
-
-2011 saw explosive, exponential growth in the space, and the number of incompatible implementations has been doubling every 6 months. With the proliferation of mobile devices and high-dpi displays, it is becoming impractical to manually export all the required image variants.
 
 A standardized URL syntax will:
 
@@ -46,8 +47,8 @@ A standardized URL syntax will:
 
 It's not a spec yet, it's still being drafted. 
 
-* [Level 1 Specification](https://github.com/imazen/riapi/blob/master/level-1.md)
-* [Level 2 Specification](https://github.com/imazen/riapi/blob/master/level-2.md)
+* [Level 1 Specification](https://github.com/riapi/riapi/blob/master/level-1.md)
+* [Level 2 Specification](https://github.com/riapi/riapi/blob/master/level-2.md)
 
 ## Scope of Level 1
 
