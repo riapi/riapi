@@ -46,7 +46,6 @@ Servers are NOT required to support duplicate values. Clients are PROHIBITED fro
 
 ### Width and Height
 
-
 Duplicate values: If both `width` and `w` have non-empty values, the value from `w` will be discarded and the value from `width` will be used. `height` and `h` follow the same rules.
 
 ### Constraint mode
@@ -54,20 +53,32 @@ Duplicate values: If both `width` and `w` have non-empty values, the value from 
 Constraint modes only matter when both width and height are specified.
 
 * max - the image will be scaled to fit within the width/height constraint box while maintaining aspect ratio
-* pad - the image will be evenly padded with whitespace to become exactly the specified size while maintaining aspect ratio
+* pad (default) - the image will be evenly padded with whitespace or transparency to become exactly the specified size while maintaining aspect ratio
 * crop - the image will be minimally cropped evenly to match the required aspect ratio
 * stretch - the image will be stretched to fit the given dimensions.
 
 Servers MAY support other constraint modes, but MUST support these 4 in order to be Level 1 compliant.
 
+If the output format supports transparency, all padding should be transparent. If transparency is not supported, white MUST be used. FFFFFF, not anything else.
+
 ### Upscaling
 
 Based on [surveys][4], users do not expect images to be upscaled above their original size. This makes sense for bandwith and image quality reasons, but can be disconcerting if HTML layout depends upon a certain result. Thus, it is important that the behavior can be controlled.
 
-* `scale`=`down`: The default. If the constraints are larger than the source image, the resulting image will use the source dimensions instead, foregoing any cropping, padding, or stretching.
+* `scale`=`down` (default): If the constraints are larger than the source image, the resulting image will use the source dimensions instead, foregoing any cropping, padding, or stretching.
 * `scale`=`both`: Enables upscaling. Images will be upscaled to match constrains and may be cropped, padded, or stretched in order to modify the aspect ratio.
 * `scale`=`canvas`: Enables upscaling of the canvas, but not the image. Above the original image size, padding will be used to reach the requestd dimensions.
 
+
+### Mime-type
+
+The correct mime-type MUST be served for the resulting image. 
+
+* Jpeg: "image/jpeg"
+
+### Encoding
+
+The server should attempt to return the image in the most similar encoding available to the source encoding. I.E, if GIF encoding is not available, PNG encoding should be used. If PNG encoding is not available, Jpeg encoding should be used with a white matte color.
 
 ## Definitions
 
