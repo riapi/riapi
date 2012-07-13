@@ -46,8 +46,8 @@ A standardized URL syntax will:
 
 It's not a spec yet, it's still being drafted. 
 
-* [Level 1 Specification](level1.md)
-* [Level 2 Specification](level2.md)
+* [Level 1 Specification](https://github.com/imazen/riapi/blob/master/level-1.md)
+* [Level 2 Specification](https://github.com/imazen/riapi/blob/master/level-2.md)
 
 ## Scope of Level 1
 
