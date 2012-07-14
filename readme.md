@@ -45,22 +45,23 @@ A standardized URL syntax will:
 
 ## Where's the spec? 
 
-It's not a spec yet, it's still being drafted. 
+It's not a spec yet, it's still being drafted. In fact, it's not even a draft yet. I'm probably still typing as you read this...
 
-* [Level 1 Specification](https://github.com/riapi/riapi/blob/master/level-1.md)
-* [Level 2 Specification](https://github.com/riapi/riapi/blob/master/level-2.md)
-
-## Scope of Level 1
+### Level 1 Scope
 
 * Width and height constraints
 * Constraint modes
-* Upscaling & downscaling conrols
+* Upscaling & downscaling controls
 * Default background color
 
-## Scope of Level 2
+* [Level 1 Specification (draft in progress)](https://github.com/riapi/riapi/blob/master/level-1.md)
+
+### Level 2 Scope
 
 * Format conversion
 * Jpeg quality selection
 * Background/matte color overrides
 * Rotation or flipping
 * Alignment control (padding and cropping)
+
+* [Level 2 Specification (draft stub)](https://github.com/riapi/riapi/blob/master/level-1.md)

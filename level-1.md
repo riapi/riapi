@@ -8,7 +8,7 @@ This specification defines a URI syntax that compliant HTTP servers and clients 
 
 * Width and height constraints
 * Constraint modes
-* Upscaling & downscaling conrols
+* Upscaling & downscaling controls
 * Default background color
 
 ## Level 1 specification 
