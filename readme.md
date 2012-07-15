@@ -2,6 +2,11 @@
 
 This is a work in progress and it has a long ways to go. Please fork and contribute!
 
+Click a filename above, then hit "Edit". When you're done, send a pull request. In the commit, please state that you are releasing your contributions into the public domain.
+
+Home page: http://riapi.org/
+Mailing list: https://groups.google.com/d/forum/riapi
+
 ### What is this about?
 
 On-demand, server-side, image scaling and modification, controlled via the query string.
