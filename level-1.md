@@ -33,7 +33,7 @@ Servers are NOT required to support duplicate values. Clients are PROHIBITED fro
 
 * width/w=[positive integer]
 * height/h=[positive integer]
-* mode=max|pad|crop|sretch
+* mode=max|pad|crop|stretch
 * scale=down|both|canvas
 
 ### Width and Height
