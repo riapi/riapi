@@ -1,33 +1,24 @@
 # RESTful Image API Level 1 Specification
 
+Revision: unreleased
+
 ## Introduction
 
 This specification defines a URI syntax that compliant HTTP servers and clients can use to communicate image modification instructions.
 
+### Prerequisites
+
+* [RIAPI Paths & Parsing Rules](https://github.com/riapi/riapi/blob/master/parsing.md)
+
 ## Scope of Level 1
 
 * Width and height constraints
-* Constraint modes
+* Constraint fit modes
 * Upscaling & downscaling controls
 * Default background color
 
-## Level 1 specification 
+## Level 1 Specification - Basic Resizing
 
-### URI model
-
-All URIs MUST be [valid URIs per RFC 3986][1].
-
-Compliant servers MUST parse the querystring according to [RFC 3986 section 3.4][2], which defines the query as the text between the first '?' characer in the URL and the first '#' character or the end of the string.
-
-The '&' character MUST be a supported delimiter between pairs, and the '=' character MUST be a supported delimiter between the name and value. After being split into a collection of name and value pairs, both names and values MUST be URL decoded exactly once. Repeated URL decoding is not permitted.
-
-[W3C suggests][3] supporting the ';' character as well as '&' for delimiting pairs. We also suggest supporting this, but do not require it. We do, however, REQUIRE that clients URL-encode semicolons that are not intended as delimiters, regardless of the server they are targeting. 
-
-Certain CDNs and reverse proxies strip querystrings. As this is catasrophic to our purposes, we suggest the following workaround: 
-
-* Servers MAY support parsing the querystring starting with the first ';' character and ending at the first '#' character or the end of the string. 
-
-Servers are NOT required to support duplicate values. Clients are PROHIBITED from specifying the same command name twice.
 
 ### Instruction Vocabulary
 
@@ -55,11 +46,11 @@ If the output format supports transparency, all padding should be transparent. I
 
 ### Upscaling
 
-Based on [surveys][4], users do not expect images to be upscaled above their original size. This makes sense for bandwith and image quality reasons, but can be disconcerting if HTML layout depends upon a certain result. Thus, it is important that the behavior can be controlled.
+Based on [surveys][4], users do not expect images to be upscaled above their original size. This makes sense for bandwidth and image quality reasons, but can be disconcerting if HTML layout depends upon a certain result. Thus, it is important that the behavior can be controlled.
 
 * `scale`=`down` (default): If the constraints are larger than the source image, the resulting image will use the source dimensions instead, foregoing any cropping, padding, or stretching.
 * `scale`=`both`: Enables upscaling. Images will be upscaled to match constrains and may be cropped, padded, or stretched in order to modify the aspect ratio.
-* `scale`=`canvas`: Enables upscaling of the canvas, but not the image. Above the original image size, padding will be used to reach the requestd dimensions.
+* `scale`=`canvas`: Enables upscaling of the canvas, but not the image. Above the original image size, padding will be used to reach the requested dimensions.
 
 
 ### Mime-type
@@ -67,10 +58,32 @@ Based on [surveys][4], users do not expect images to be upscaled above their ori
 The correct mime-type MUST be served for the resulting image. 
 
 * Jpeg: "image/jpeg"
+* Png: "image/png"
+* Gif: "image/gif"
+* Tiff: "image/tiff"
 
 ### Encoding
 
-The server should attempt to return the image in the most similar encoding available to the source encoding. I.E, if GIF encoding is not available, PNG encoding should be used. If PNG encoding is not available, Jpeg encoding should be used with a white matte color.
+The three widely supported image formats are: JPEG, PNG, and GIF. Other output formats lack widespread browser support, and SHOULD not be used unless explicitly requested.
+
+If the source format is a web-compatible format, and encoding in the format is supported, the original format should be maintained. 
+
+If a different output format must be chosen, the closest format should be selected based on the following criteria, in the specified order:
+
+1. Color Depth - The output format should support similar or greater color depth.
+2. Transparency Support - The output format should support transparency to a similar or greater precision than the input format.
+
+Here are some examples:
+
+| Source format | Available encoders | Correct Result
+| --- | --- | --- |
+CR2/RAW | JPG, PNG, GIF | JPG
+PNG | JPG, PNG, GIF | PNG
+GIF | JPG, PNG | PNG
+24 or 32-bit PNG | JPG, GIF | JPG
+8-bit PNG | JPG, GIF | GIF
+
+If the input format supports transparency, but the output format does not, a matte color MUST be applied, and that color MUST be white (FFFFFF) unless another color is specified in the querystring.
 
 ## Definitions
 
@@ -78,9 +91,6 @@ The server should attempt to return the image in the most similar encoding avail
 * RIAPI: RESTful Image API
 
 
-### Integer parsing
-
-Integers must be parsed in culture-invariant manner. Commas must be discarded. Periods mark the end of the integer portion, and the remaining numerals can be discarded.
 
 [1]: http://tools.ietf.org/html/rfc3986
 [2]: http://tools.ietf.org/html/rfc3986#section-3.4

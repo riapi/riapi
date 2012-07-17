@@ -13,7 +13,6 @@ On-demand, server-side, image scaling and modification, controlled via the query
 
 Ex. `image.jpg?width=100&height=100`
 
-
 ### Where is this used extensively?
 
 * E-commerce. Product images are always needed at variety of resolutions.
@@ -52,6 +51,17 @@ A standardized URL syntax will:
 
 It's not a spec yet, it's still being drafted. In fact, it's not even a draft yet. I'm probably still typing as you read this...
 
+### RIAPI Paths & Parsing Rules Scope
+
+* How paths must identify a source file, even if the querystring is removed.
+* Commonly accepted syntaxes for remote files
+* Methods for encoding data in the path
+* Querystring parsing rules
+* Case-sensitivity
+* Numeric parsing rules
+* [Paths & Parsing Rules Specification](https://github.com/riapi/riapi/blob/master/parsing.md)
+
+
 ### Level 1 Scope
 
 * Width and height constraints
@@ -70,3 +80,5 @@ It's not a spec yet, it's still being drafted. In fact, it's not even a draft ye
 * Alignment control (padding and cropping)
 
 * [Level 2 Specification (draft stub)](https://github.com/riapi/riapi/blob/master/level-1.md)
+
+
