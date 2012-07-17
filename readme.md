@@ -51,7 +51,9 @@ A standardized URL syntax will:
 
 It's not a spec yet, it's still being drafted. In fact, it's not even a draft yet. I'm probably still typing as you read this...
 
-### RIAPI Paths & Parsing Rules Scope
+### [RIAPI Paths & Parsing Rules](https://github.com/riapi/riapi/blob/master/parsing.md)
+
+This document serves as the bases for Level 1 and Level 2, and covers the following topics.
 
 * How paths must identify a source file, even if the querystring is removed.
 * Commonly accepted syntaxes for remote files
@@ -59,26 +61,23 @@ It's not a spec yet, it's still being drafted. In fact, it's not even a draft ye
 * Querystring parsing rules
 * Case-sensitivity
 * Numeric parsing rules
-* [Paths & Parsing Rules Specification](https://github.com/riapi/riapi/blob/master/parsing.md)
 
+### [RIAPI Level 1](https://github.com/riapi/riapi/blob/master/level-1.md)
 
-### Level 1 Scope
+Level 1 defines basic resizing commands for images:
 
 * Width and height constraints
 * Constraint modes
 * Upscaling & downscaling controls
 * Default background color
 
-* [Level 1 Specification (draft in progress)](https://github.com/riapi/riapi/blob/master/level-1.md)
+### [RIAPI Level 2](https://github.com/riapi/riapi/blob/master/level-2.md)
 
-### Level 2 Scope
+Level 2 expands the command set to provide more control
 
 * Format conversion
 * Jpeg quality selection
 * Background/matte color overrides
-* Rotation or flipping
+* Rotation ond flipping
 * Alignment control (padding and cropping)
-
-* [Level 2 Specification (draft stub)](https://github.com/riapi/riapi/blob/master/level-1.md)
-
 
