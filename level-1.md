@@ -1,12 +1,15 @@
 # RESTful Image API Level 1 Specification
 
-Revision: unreleased
+`under development`
 
 ## Introduction
 
 This specification defines a URI syntax that compliant HTTP servers and clients can use to communicate image modification instructions.
+The Level 1 Specification only covers basic image resizing commands. 
 
 ### Prerequisites
+
+To be compliant with this specification, you must also comply with each of the following:
 
 * [RIAPI Paths & Parsing Rules](https://github.com/riapi/riapi/blob/master/parsing.md)
 
@@ -91,10 +94,6 @@ If the input format supports transparency, but the output format does not, a mat
 * RIAPI: RESTful Image API
 
 
-
-[1]: http://tools.ietf.org/html/rfc3986
-[2]: http://tools.ietf.org/html/rfc3986#section-3.4
-[3]: http://www.w3.org/TR/1999/REC-html401-19991224/appendix/notes.html#h-B.2.2
 [4]: http://imageresizing.net/plugins/defaultsettings
 
 

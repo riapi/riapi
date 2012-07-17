@@ -1,12 +1,14 @@
 # RESTful Image API Level 2 Specification
 
-Revision: unreleased
+`under development`
 
 ## Introduction
 
 This specification defines a URI syntax that compliant HTTP servers and clients can use to communicate image modification instructions.
 
 ### Prequisites
+
+To be compliant with this specification, you must also comply with each of the following:
 
 * [RIAPI Paths & Parsing Rules](https://github.com/riapi/riapi/blob/master/parsing.md)
 * [RIAPI Level 1](https://github.com/riapi/riapi/blob/master/level-1.md)
