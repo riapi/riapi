@@ -70,6 +70,7 @@ Level 1 defines basic resizing commands for images:
 * Constraint modes
 * Upscaling & downscaling controls
 * Default background color
+* API version selection
 
 ### [RIAPI Level 2](https://github.com/riapi/riapi/blob/master/level-2.md)
 
@@ -80,4 +81,18 @@ Level 2 expands the command set to provide more control
 * Background/matte color overrides
 * Rotation ond flipping
 * Alignment control (padding and cropping)
+
+
+## Philosophy
+
+Some image servers accept lists of commands and apply them in order. This places the mathematical burden on client, and often requires the client to have data it does not possess, like the original size of the image. We do not take this approach, although compliant implementations *are* permitted to accept command lists as well.
+
+RIAPI attempts to be descriptive, informing the server of the desired result without prescribing the steps. This frees the server to compose operations for optimal performance. The order of commands in the querystring has *no* bearing on the order of operations. 
+
+We believe this is a more human and javascript-friendly approach, as it assumes no prior knowledge of dimensions nor mathematical prowess. It also covers a overwhelming majority of use cases. 
+
+### Versioning
+
+Specification version identifiers have not yet been assigned, but if you want to link to a specific version of any file, you can click the `History` button while visiting the file, and click `Browse Source` afterwards to get a permalink to that version. We take a 'release early, fix early' approach here, so spelling errors are not uncommon. 
+
 
