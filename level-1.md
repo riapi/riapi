@@ -19,6 +19,7 @@ To be compliant with this specification, you must also comply with each of the f
 * Constraint fit modes
 * Upscaling & downscaling controls
 * Default background color
+* API version selection
 
 ## Level 1 Specification - Basic Resizing
 
@@ -29,6 +30,7 @@ To be compliant with this specification, you must also comply with each of the f
 * height/h=[positive integer]
 * mode=max|pad|crop|stretch
 * scale=down|both|canvas
+* v=0.1...infinity
 
 ### Width and Height
 
@@ -55,6 +57,11 @@ Based on [surveys][4], users do not expect images to be upscaled above their ori
 * `scale`=`both`: Enables upscaling. Images will be upscaled to match constrains and may be cropped, padded, or stretched in order to modify the aspect ratio.
 * `scale`=`canvas`: Enables upscaling of the canvas, but not the image. Above the original image size, padding will be used to reach the requested dimensions.
 
+### Versioning
+
+Clients wishing to have portable, future-proof links SHOULD specify the RIAPI version they are aiming for with `v=x.x`. Backwards-incompatible changes are not anticipated, but may occur. 
+
+If the server does not support the RIAPI version specified by the client, it should use the nearest larger version number supported.
 
 ### Mime-type
 
