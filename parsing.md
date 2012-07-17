@@ -89,7 +89,9 @@ Certain CDNs and reverse proxies strip querystrings. As this is catastrophic to 
 
 * Servers MAY support parsing the querystring starting with the first ';' character and ending at the first '#' character or the end of the string. If this is supported, a hybrid URL like `image.jpg;width=100?height=200` MUST be supported. 
 
-Servers are NOT required to support duplicate values, but MAY do so, taking the value of the last duplicate instead of returning HTTP 500. Clients are PROHIBITED from specifying the same command name twice.
+Servers are NOT required to support duplicate values, but MAY do so, taking the value of the any instance instead of returning HTTP 500. Clients are PROHIBITED from specifying the same command name twice.
+
+The order of commands in the querystring MUST not affect the result for RIAPI compliant requests.
 
 ### Case sensitivity
 
@@ -104,6 +106,44 @@ Integers must be parsed in culture-invariant manner. Commas must be discarded. P
 For all integer types, commas are the thousands separator, and periods separate the integral and decimal portions. 
 
 We suggest storing floating-point values in variables with at least 15 digits of precision.
+
+### Color Parsing
+
+Colors are specified in hexadecimal or named form. 
+
+`RGB|RGBA|RRGGBB|RRGGBBAA|named color`
+
+To convert from RGB to RRGGBB form, simply multiply each component by 16. 
+
+If the number of hexadecimal digits is 4 or 8, you know an alpha value has been specified. If it is missing, assume FF, full opacity.
+
+
+Named color parsing must comply with the [CSS3 specification](http://www.w3.org/TR/css3-color/), and must be case-insensitive and culture-invariant.
+
+| Name | Hex Value |
+| --- | ---|
+Transparent | 0000
+Black | 000
+White | FFF
+Gray | 888
+Silver | CCC
+Maroon | 800
+Red | F00
+Purple | 808
+Fuchsia | F0F
+Greem | 080
+Lime | 0F0
+Olive | 880
+Yellow | FF0
+Navy | 008
+Blue | 00F
+Teal | 088
+Aqua | 0FF
+
+
+### Parsing failure
+
+In the event that a command value is not recognized or cannot be parsed, the command should be ignored instead of throwing a HTTP 500 error. 
 
 ## URI-safe Base64 encoding (Base64U)
 
