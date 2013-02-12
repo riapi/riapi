@@ -85,13 +85,13 @@ If a different output format must be chosen, the closest format should be select
 
 Here are some examples:
 
-| Source format | Available encoders | Correct Result
+| Source format | Ideal output format | Available encoders | Correct choice given available encoders
 | --- | --- | --- |
-CR2/RAW | JPG, PNG, GIF | JPG
-PNG | JPG, PNG, GIF | PNG
-GIF | JPG, PNG | PNG
-24 or 32-bit PNG | JPG, GIF | JPG
-8-bit PNG | JPG, GIF | GIF
+CR2/RAW | JPG | JPG, PNG, GIF | JPG
+PNG | PNG | JPG, PNG, GIF | PNG
+GIF | GIF | JPG, PNG | PNG
+24 or 32-bit PNG | PNG | JPG, GIF | JPG
+8-bit PNG | PNG |  JPG, GIF | GIF
 
 If the input format supports transparency, but the output format does not, a matte color MUST be applied, and that color MUST be white (FFFFFF) unless another color is specified in the querystring.
 
