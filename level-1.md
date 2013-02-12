@@ -86,7 +86,7 @@ If a different output format must be chosen, the closest format should be select
 Here are some examples:
 
 | Source format | Ideal output format | Available encoders | Correct choice given available encoders
-| --- | --- | --- |
+| --- | --- | --- | --- |
 CR2/RAW | JPG | JPG, PNG, GIF | JPG
 PNG | PNG | JPG, PNG, GIF | PNG
 GIF | GIF | JPG, PNG | PNG
