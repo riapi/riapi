@@ -73,15 +73,15 @@ List of ordering parameters :
 
   * w (width)
   * h (height)
-  * mode
-  * scale
-  * v (version)
+  * mode (default=pad)
+  * scale (default=down)
+  * v (version=1.0)
 
 **LEVEL 2 :**
 
   * format
   * quality
-  * bgcolor
+  * bgcolor (default=ffffff)
   * anchor
   * srotate
   * rotate
