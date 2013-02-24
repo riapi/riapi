@@ -6,10 +6,10 @@
 Resizing pictures costs cpu and memory so caching the result becomes important for scalling the application. 
 
 With a reverse proxy like akamai, varnish, or nginx you can send headers from scripts and force serving cache, but
-for many little applications this configuration can be hard to deploy.
+for many little applications this kind of configuration can be hard to deploy and maintain.
 
 A common trick is to use the 404 fallback over a picture to generate the missing ressource for the first time,
-and serve it from the file system after.
+and after serve it directly with the server from the file system.
 
 ## The scope of this specification
 
@@ -50,7 +50,7 @@ Sample resizing :
 /static/w.120/h.60/sid/pictures/my_logo.png
 Will resize the picture /pictures/my_logo.png with with=120 and height=60
 
-## Parameters ordering
+## Parameters : ordering, aliases and default values
 
 In a query string the order of parameters doesn't matters, but with the caching the parameters are building the 
 cache key, so the same result can be stored with same parameters but at many places :
@@ -60,6 +60,44 @@ cache key, so the same result can be stored with same parameters but at many pla
 is the same as :
 
 /static/h.60/w.120/sid/pictures/my_logo.png
+
+To avoid duplicating cache entries and waste disk space you should follow the vocabulary instructions from 
+level 1 to N, and if available, the short form of parameters (should use w but not width).
+
+If a parameter contains a default value `../mode.pad/...` the parameter and it's value should not be 
+used for storing the key.
+
+List of ordering parameters :
+
+**LEVEL 1 :** 
+
+  * w (width)
+  * h (height)
+  * mode
+  * scale
+  * v (version)
+
+**LEVEL 2 :**
+
+  * format
+  * quality
+  * bgcolor
+  * anchor
+  * srotate
+  * rotate
+  * sflip
+  * flip
+  * subsampling
+
+### What to do when the path contains bad ordering ?
+
+You must not serve the content and send a 301 header(http://en.wikipedia.org/wiki/HTTP_301).
+
+Example :
+/static/h.60/width.120/mode.pad/sid/pictures/my_logo.png
+
+Response : 
+301 -> Location : /static/w.120/h.60/sid/pictures/my_logo.png
 
 
 
