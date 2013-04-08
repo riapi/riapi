@@ -55,7 +55,7 @@ Use `anchor` to control the alignment used by fit modes 'crop' and 'pad'.
 Valid values are `topleft|topcenter|topright|middleleft|middlecenter|middleright|bottomleft|bottomcenter|bottomright`.
 
 When used with `mode=crop`, the anchor specifies the area of the image to be preserved. 
-When used with `mode=crop`, the anchor specifies the area of the image that will not get whitespace. 
+When used with `mode=pad`, the anchor specifies the area of the image that will not get whitespace. 
 
 ## Backround Color
 
