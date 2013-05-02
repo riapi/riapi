@@ -53,7 +53,7 @@ It's not a spec yet, it's still being drafted. In fact, it's not even a draft ye
 
 ### [RIAPI Paths & Parsing Rules](https://github.com/riapi/riapi/blob/master/parsing.md)
 
-This document serves as the bases for Level 1 and Level 2, and covers the following topics.
+This document serves as the basis for Level 1 and Level 2, and covers the following topics.
 
 * How paths must identify a source file, even if the querystring is removed.
 * Commonly accepted syntaxes for remote files
