@@ -77,9 +77,9 @@ Level 1 defines basic resizing commands for images:
 Level 2 expands the command set to provide more control
 
 * Format conversion
-* Jpeg quality selection
+* JPEG quality selection
 * Background/matte color overrides
-* Rotation ond flipping
+* Rotation and flipping
 * Alignment control (padding and cropping)
 
 
