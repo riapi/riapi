@@ -13,6 +13,15 @@ On-demand, server-side, image scaling and modification, controlled via the query
 
 Ex. `image.jpg?width=100&height=100`
 
+
+### Which products use this?
+
+* [ImageResizer](https://imageresizing.net/)
+* [Imageflow](https://github.com/imazen/imageflow) and various wrappers such as [Imageflow.Net](https://github.com/imazen/imageflow-dotnet), [imageflow-node](https://github.com/imazen/imageflow-node), [imageflow-go](https://github.com/imazen/imageflow-go) etc
+* [Imageflow Server](https://github.com/imazen/imageflow-dotnet-server)
+* Many content management systems, libraries, and tools embed libimageflow and thus support RIAPI.
+* Many other products have adopted this simple syntax to some extent because it is intuitive. 
+
 ### Where is this used extensively?
 
 * E-commerce. Product images are always needed at variety of resolutions.
